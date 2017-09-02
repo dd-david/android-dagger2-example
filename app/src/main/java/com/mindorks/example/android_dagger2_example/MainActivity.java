@@ -25,11 +25,32 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvAccessToken;
 
     public ActivityComponent getActivityComponent() {
+        /*
+        * 실제 my-component, ActivityComponent 설정은 다음과 같습니다
+        * @PerActivity
+        * @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
+        * public interface ActivityComponent
+        *
+        * Component 의 Dependency Graph 를 생성하는 방법
+        * 1. [DaggerComponentBuilder 생성] Dagger + (my-component) .builder()
+        * 2. [modules 세팅]                .module(new module)
+        * 3. [dependency 세팅]             .component(new component)
+        * 4. [Component 생성]              .build()
+        *
+        * (상세-3) dependency 세팅을 할때,
+        * .component(new component)
+        *            -------------
+        *            여기는 (상위) Component 이니깐, DaggerComponent.builder 를 통해서 concrete class 를 생성할 수 없음 (중복)
+        *            그래서 해당 DaggerComponent.build 를 통해서 만들어낸 객체를 가져와서 주입할 수 있도록, static method 를 만들어 둔다.
+        *
+        * */
         if (activityComponent == null) {
-            activityComponent = DaggerActivityComponent.builder()
-                    .activityModule(new ActivityModule(this))
-                    .applicationComponent(DemoApplication.get(this).getComponent())
-                    .build();
+            activityComponent = DaggerActivityComponent.builder()                   /* Dagger + my-component # builder() */
+                    .activityModule(new ActivityModule(this))                       /* "modules" 에 포함되면      -> .module(new module) */
+                    .applicationComponent(DemoApplication.get(this).getComponent()) /* "dependencies" 에 포함되면 -> .component(new component) */
+                    .build();                                                       /* .build() -> my-component */
+
+
         }
         return activityComponent;
     }

@@ -47,7 +47,7 @@ public class DbHelper extends SQLiteOpenHelper {
     *
     * 동일한 @DatabaseInfo 를 사용하더라도 현재 dagger 의 dependency graph 에서
     * int, String 을 구분해서 값을 넣어줍니다
-    * 
+    *
     * TODO: ApplicationModule 을 보면 provideDatabaseName, provideDatabaseVersion 와 같이
     * TODO: DatabaseName -> dbName, DatabaseVersion -> version 처럼 네이밍 룰이 지켜지지 않는데 괜찮나?
     *

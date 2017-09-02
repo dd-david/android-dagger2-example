@@ -19,10 +19,24 @@ import dagger.Component;
  * Created by janisharali on 08/12/16.
  */
 
+/*
+* ___Component 는 Dagger2 에 의해서 만들어지는 interface 입니다.
+* 1. @Component annotation 을 사용합니다.
+* 2.
+*
+*
+* */
+
 @Singleton
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
 
+    /*
+    * TODO: inject(DemoApplication) 이란 메소드를 만든 이유는?
+    *
+    *
+    *
+    * */
     void inject(DemoApplication demoApplication);
 
     @ApplicationContext

@@ -15,6 +15,7 @@ import javax.inject.Singleton;
 
 /*
 * DataManager class will provide access to the data of the application.
+* Data 를 접근하고 다루는걸 관장하는 클래스 입니다
 *
 *
 * */

@@ -20,6 +20,11 @@ public class SharedPrefsHelper {
 
     private SharedPreferences mSharedPreferences;
 
+    /*
+    * 여기서도 Constructor Inject 를 사용하고 있습니다
+    * TODO: provideSharedPreferences() 와 같은 함수가 없는데, 어떻게 셋업될 수 있나?
+    *
+    * */
     @Inject
     public SharedPrefsHelper(SharedPreferences sharedPreferences) {
         mSharedPreferences = sharedPreferences;
