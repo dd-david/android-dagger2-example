@@ -9,6 +9,10 @@ import javax.inject.Singleton;
  * Created by janisharali on 25/12/16.
  */
 
+/*
+* SharedPrefsHelper will be used by DataManager to access the SharedPreferences.
+*
+* */
 @Singleton
 public class SharedPrefsHelper {
 

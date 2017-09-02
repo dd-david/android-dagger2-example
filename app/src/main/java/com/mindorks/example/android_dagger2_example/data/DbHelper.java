@@ -19,6 +19,14 @@ import javax.inject.Singleton;
  * Created by janisharali on 25/12/16.
  */
 
+/*
+* DbHelper class will be used by DataManager to access the SQLite database.
+*
+* SQLiteOpenHelper 를 상속한 Db Handling 클래스 입니다.
+*
+* @Singleton : globally single instance 만 사용하도록 세팅됩니다
+*              어디서라도 DbHelper 와의 관계를 요청한다면, 어디서라도 app 내의 1개의 instance 를 사용합니다.
+* */
 @Singleton
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -30,6 +38,20 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String USER_COLUMN_USER_CREATED_AT = "created_at";
     public static final String USER_COLUMN_USER_UPDATED_AT = "updated_at";
 
+    /*
+    * @Inject at Constructor
+    * 생성자의 파라미터들의 dependencies 를 dagger 가 모아서 주입 해줍니다.
+    *
+    * @ApplicationContext 라는 Qualifier 가 붙어있으면,
+    * dagger2 에서는 Application Context 를 가져옵니다 (Activity Context 나 그 외 Context 가 아닌)
+    *
+    * 동일한 @DatabaseInfo 를 사용하더라도 현재 dagger 의 dependency graph 에서
+    * int, String 을 구분해서 값을 넣어줍니다
+    * 
+    * TODO: ApplicationModule 을 보면 provideDatabaseName, provideDatabaseVersion 와 같이
+    * TODO: DatabaseName -> dbName, DatabaseVersion -> version 처럼 네이밍 룰이 지켜지지 않는데 괜찮나?
+    *
+    * */
     @Inject
     public DbHelper(@ApplicationContext Context context,
                     @DatabaseInfo String dbName,

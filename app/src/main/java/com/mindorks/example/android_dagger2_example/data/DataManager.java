@@ -13,6 +13,11 @@ import javax.inject.Singleton;
  * Created by janisharali on 25/12/16.
  */
 
+/*
+* DataManager class will provide access to the data of the application.
+*
+*
+* */
 @Singleton
 public class DataManager {
 

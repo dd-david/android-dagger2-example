@@ -4,6 +4,14 @@ package com.mindorks.example.android_dagger2_example.data.model;
  * Created by janisharali on 25/12/16.
  */
 
+/*
+* Model classes for retrieving the DB table.
+*
+* Db Table 을 바인딩하기 위한 용도로 사용되었습니다
+* 즉, User 라는 테이블을 대변합니다
+*
+* 내부에 column 에 해당하는 맴버변수가 존재하고(x5), 각 getter/setter 가 정의되어 있습니다
+* */
 public class User {
 
     private Long id;
