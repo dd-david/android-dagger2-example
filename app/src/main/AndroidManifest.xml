@@ -9,6 +9,8 @@
         android:supportsRtl="true"
         android:name=".DemoApplication"
         android:theme="@style/AppTheme">
+
+        <!-- 샘플앱은 아주 간단하게도 MainActivity 진입 화면 하나만 존재합니다 -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

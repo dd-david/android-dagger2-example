@@ -27,8 +27,23 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
 
+    /*
+    * https://github.com/google/dagger -> build.gradle 셋업 가이드
+    * // Add Dagger dependencies
+    * dependencies {
+    *   compile 'com.google.dagger:dagger:2.x'
+    *   annotationProcessor 'com.google.dagger:dagger-compiler:2.x'
+    * }
+    * mindorks 에서는 dagger-compiler annotationProcessor repo 를 제외하곤
+    * dagger2 를 사용하기 위한 필수항목이라고 설명하고 있습니다
+    *
+    * annotation processor : dagger-compiler
+    * (1) annotation-processing repo 입니다
+    * (2) build time 중에 dependency graph 를 만드는 역할을 합니다
+    * */
     compile "com.google.dagger:dagger:2.8"
     annotationProcessor "com.google.dagger:dagger-compiler:2.8"
+
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'
 }
